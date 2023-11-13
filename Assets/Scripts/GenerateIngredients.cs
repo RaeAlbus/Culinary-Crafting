@@ -7,9 +7,14 @@ public class GenerateIngredients : MonoBehaviour
     private string[] ingredients;
     public Sprite[] ingredientSprites;
     public GameObject IngredientPrefab;
+    
     // Start is called before the first frame update
     void Start()
     {
+        SetUpIngredients();
+    }
+
+    public void SetUpIngredients(){
         float currRow = 0;
         int numObjs = 1;
         float index = 0.0f;

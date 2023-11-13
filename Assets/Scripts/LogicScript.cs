@@ -15,6 +15,7 @@ public class LogicScript : MonoBehaviour
     private List<string> goal2;
     public GameObject IngredientPrefab;
     public Sprite[] dishSprites;
+    public GenerateIngredients scriptAReference;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +51,6 @@ public class LogicScript : MonoBehaviour
             Slot slotScript = slot.GetComponent<Slot>();
             if (slotScript.ingredient != null) {
                 ingNames.Add(slotScript.ingredient.name);
-                Debug.Log(slotScript.ingredient.name);
             }
         }
         ingNames.Sort();
@@ -58,7 +58,7 @@ public class LogicScript : MonoBehaviour
         if(stepOneDone){
             if (goal2.SequenceEqual(ingNames)) {
                 updateText("You made Pancakes!");
-                spawnIngredient("Pancake Batter");
+                spawnIngredient("Pancakes");
                 stepTwoDone = true;
             } else {
                 updateText("Not quite right...");
@@ -68,8 +68,26 @@ public class LogicScript : MonoBehaviour
                 updateText("You made Pancake Batter!");
                 spawnIngredient("Pancake Batter");
                 stepOneDone = true;
+
+                // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
+                GameObject generteSceneObject = GameObject.Find("GenerateScene");
+                GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
+                genIngScript.SetUpIngredients();
+                DestroyIngredients(ingNames);
             } else {
                 updateText("Not quite right...");
+            }
+        }
+    }
+
+    public void DestroyIngredients(List<string> ingNames) {
+        foreach (string name in ingNames) {
+            GameObject objectToDestroy = GameObject.Find(name);
+
+            if (objectToDestroy != null) {
+                Destroy(objectToDestroy);
+            } else {
+                Debug.LogWarning("GameObject with name " + name + " not found.");
             }
         }
     }
