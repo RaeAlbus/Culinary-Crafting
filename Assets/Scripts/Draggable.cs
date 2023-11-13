@@ -4,13 +4,10 @@ public class Draggable : MonoBehaviour
 {
     private bool isDragging = false;
     private Vector3 offset;
-    private Transform slotTransform;
-    public GameObject slot;
-    private Slot slotScript;
+    private GameObject[] slots;
 
     void Start() {
-        slotTransform = slot.transform;
-        slotScript = slot.GetComponent<Slot>();
+        slots = GameObject.FindGameObjectsWithTag("Slot");
     }
 
     void OnMouseDown()
@@ -22,7 +19,11 @@ public class Draggable : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
-        slotScript.mUp(gameObject);
+        foreach (GameObject slot in slots) {
+            Slot slotScript = slot.GetComponent<Slot>();
+            slotScript.mUp(gameObject);
+        }
+        
     }
 
     void Update()
