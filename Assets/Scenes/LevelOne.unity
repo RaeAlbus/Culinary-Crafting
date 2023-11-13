@@ -415,6 +415,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bdfda67e55019b41a335cf038118342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientSprites:
+  - {fileID: 21300000, guid: 9c231039a3800f44086cf9a8303912a0, type: 3}
+  - {fileID: 21300000, guid: 08f384ad0ea6ecb4aa403f5a73f231c9, type: 3}
+  - {fileID: 21300000, guid: 515753a1e301d22489d06a2ff5304bf7, type: 3}
+  - {fileID: 21300000, guid: 46807d850bd64d3479208d36df776340, type: 3}
+  - {fileID: 21300000, guid: a6eb3075b2ae2fc44a1227c2d558b4b5, type: 3}
+  - {fileID: 21300000, guid: b9d02d6325e4d8448ac1aa78109fd5a0, type: 3}
+  - {fileID: 21300000, guid: 7d1d536aa065984419b401b6439f46ac, type: 3}
+  - {fileID: 21300000, guid: 5ab2e840754861f4aa09b3f80ad65c58, type: 3}
+  - {fileID: 21300000, guid: d5c56e9ca81348c44b42fa4616fbf602, type: 3}
+  - {fileID: 21300000, guid: 5ad02be01c7a69644aa111a200b923bd, type: 3}
+  - {fileID: 21300000, guid: d9540ac9d5c783840a9dd1f214f4c6c2, type: 3}
+  - {fileID: 21300000, guid: 15fd04f19a8d0d9409e73c2134838932, type: 3}
+  - {fileID: 21300000, guid: 2dbf23d66d048ec4292b4c7a9bc95ac5, type: 3}
+  - {fileID: 21300000, guid: 03129aa6d40a8b546853216060a79e21, type: 3}
   IngredientPrefab: {fileID: 5483131775400075219, guid: 06544757ef01aee4a95512a479024b5c, type: 3}
 --- !u!4 &773673395
 Transform:
