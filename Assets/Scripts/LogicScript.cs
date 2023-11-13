@@ -54,6 +54,7 @@ public class LogicScript : MonoBehaviour
             }
         }
         ingNames.Sort();
+    
 
         if(stepOneDone){
             if (goal2.SequenceEqual(ingNames)) {
@@ -64,7 +65,7 @@ public class LogicScript : MonoBehaviour
                 updateText("Not quite right...");
             }
         } else {
-            if (goal.SequenceEqual(ingNames)) {
+            if (goal.OrderBy(x => x).SequenceEqual(ingNames.OrderBy(x => x))) {
                 updateText("You made Pancake Batter!");
                 spawnIngredient("Pancake Batter");
                 stepOneDone = true;
