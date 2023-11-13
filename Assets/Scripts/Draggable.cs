@@ -6,9 +6,11 @@ public class Draggable : MonoBehaviour
     private Vector3 offset;
     private Transform slotTransform;
     public GameObject slot;
+    private Slot slotScript;
 
     void Start() {
         slotTransform = slot.transform;
+        slotScript = slot.GetComponent<Slot>();
     }
 
     void OnMouseDown()
@@ -20,13 +22,7 @@ public class Draggable : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
-
-        // Check if the draggable is close enough to the slot
-        if (Vector2.Distance(transform.position, slotTransform.position) < 1.0f)
-        {
-            // Snap the draggable to the slot
-            transform.position = slotTransform.position;
-        }
+        slotScript.mUp(gameObject);
     }
 
     void Update()
