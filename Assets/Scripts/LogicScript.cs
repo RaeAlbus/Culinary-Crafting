@@ -16,6 +16,8 @@ public class LogicScript : MonoBehaviour
     public GameObject IngredientPrefab;
     public Sprite[] dishSprites;
     public GenerateIngredients scriptAReference;
+    public List<string> allIngredients = new List<string>{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "Frying Pan", "Pot", "Knife"};
+
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +76,7 @@ public class LogicScript : MonoBehaviour
                 GameObject generteSceneObject = GameObject.Find("GenerateScene");
                 GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
                 genIngScript.SetUpIngredients();
-                DestroyIngredients(ingNames);
+                DestroyIngredients(allIngredients);
             } else {
                 updateText("Not quite right...");
             }

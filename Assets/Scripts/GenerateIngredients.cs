@@ -7,6 +7,7 @@ public class GenerateIngredients : MonoBehaviour
     private string[] ingredients;
     public Sprite[] ingredientSprites;
     public GameObject IngredientPrefab;
+    public GameObject SlotPrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,10 @@ public class GenerateIngredients : MonoBehaviour
                 index = 0.0f;
             }
         }
+    }
+
+    public void SetUpSlots(){
+
     }
 
     // Helper method to get the sprite for a specific ingredient
