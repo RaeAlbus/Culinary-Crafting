@@ -7,7 +7,7 @@ public class Draggable : MonoBehaviour
     private GameObject[] slots;
 
     void Start() {
-        slots = GameObject.FindGameObjectsWithTag("Slot");
+        
     }
 
     void OnMouseDown()
@@ -28,6 +28,8 @@ public class Draggable : MonoBehaviour
 
     void Update()
     {
+        slots = GameObject.FindGameObjectsWithTag("Slot");
+        
         if (isDragging)
         {
             Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, offset.z);

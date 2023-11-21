@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LogicScript : MonoBehaviour
 {
@@ -15,12 +16,11 @@ public class LogicScript : MonoBehaviour
     private List<string> goal2;
     public GameObject IngredientPrefab;
     public Sprite[] dishSprites;
-   //public GenerateIngredients scriptAReference;
 
     // Start is called before the first frame update
     void Start()
     {
-        slots = GameObject.FindGameObjectsWithTag("Slot");
+        //slots = GameObject.FindGameObjectsWithTag("Slot");
         goal = new List<string>{"Water", "Eggs", "Flour", "Sugar", "Bowl"};
         goal2 = new List<string>{"Pancake Batter", "Frying Pan", "Stove"};
         goal.Sort();
@@ -30,6 +30,8 @@ public class LogicScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slots = GameObject.FindGameObjectsWithTag("Slot");
+
         if(stepOneDone && stepTwoDone){
             Invoke("NextLevel", 2.0f);
         }
@@ -83,8 +85,8 @@ public class LogicScript : MonoBehaviour
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
                 GameObject generteSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
-                genIngScript.SetUpIngredients();
                 DestroyIngredients(genIngScript.ingredients);
+                genIngScript.SetUpIngredients();
 
                 // Resets slot to be the new number of slots necessary
                 GameObject generateSlotsObject = GameObject.Find("GenerateSlots");
