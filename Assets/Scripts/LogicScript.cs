@@ -16,8 +16,6 @@ public class LogicScript : MonoBehaviour
     public GameObject IngredientPrefab;
     public Sprite[] dishSprites;
     public GenerateIngredients scriptAReference;
-    public List<string> allIngredients = new List<string>{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "Frying Pan", "Pot", "Knife"};
-
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +60,16 @@ public class LogicScript : MonoBehaviour
             if (goal2.SequenceEqual(ingNames)) {
                 updateText("You made Pancakes!");
                 spawnIngredient("Pancakes");
+                addIngredient("Pancakes");
                 stepTwoDone = true;
+
+                
+                // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
+                GameObject generteSceneObject = GameObject.Find("GenerateScene");
+                GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
+                genIngScript.SetUpIngredients();
+
+                DestroyIngredients(genIngScript.ingredients);
             } else {
                 updateText("Not quite right...");
             }
@@ -70,20 +77,22 @@ public class LogicScript : MonoBehaviour
             if (goal.OrderBy(x => x).SequenceEqual(ingNames.OrderBy(x => x))) {
                 updateText("You made Pancake Batter!");
                 spawnIngredient("Pancake Batter");
+                addIngredient("Pancake Batter");
                 stepOneDone = true;
 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
                 GameObject generteSceneObject = GameObject.Find("GenerateScene");
                 GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
                 genIngScript.SetUpIngredients();
-                DestroyIngredients(allIngredients);
+
+                DestroyIngredients(genIngScript.ingredients);
             } else {
                 updateText("Not quite right...");
             }
         }
     }
 
-    public void DestroyIngredients(List<string> ingNames) {
+    public void DestroyIngredients(string[] ingNames) {
         foreach (string name in ingNames) {
             GameObject objectToDestroy = GameObject.Find(name);
 
@@ -93,6 +102,22 @@ public class LogicScript : MonoBehaviour
                 Debug.LogWarning("GameObject with name " + name + " not found.");
             }
         }
+    }
+
+    public void addIngredient(string name){
+        GameObject generteSceneObject = GameObject.Find("GenerateScene");
+        GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
+        // Create a new array with a larger size
+        string[] newIngredients = new string[ genIngScript.ingredients.Length + 1];
+        // Copy existing elements to the new array
+        for (int i = 0; i <  genIngScript.ingredients.Length; i++)
+        {
+            newIngredients[i] = genIngScript.ingredients[i];
+        }
+        // Add the new ingredient to the end of the new array
+        newIngredients[newIngredients.Length - 1] = name;
+        // Update the original array reference
+        genIngScript.ingredients = newIngredients;
     }
 
     public void spawnIngredient(string name) {

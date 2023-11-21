@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class GenerateIngredients : MonoBehaviour
 {
-    private string[] ingredients;
+    public string[] ingredients = new string[]{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "Frying Pan"};
     public Sprite[] ingredientSprites;
     public GameObject IngredientPrefab;
-    public GameObject SlotPrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,6 @@ public class GenerateIngredients : MonoBehaviour
         float currRow = 0;
         int numObjs = 1;
         float index = 0.0f;
-        ingredients = new string[]{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "Frying Pan", "Pot", "Knife"};
         foreach (string name in ingredients) {
             GameObject spawnedPrefab = Instantiate(IngredientPrefab, new Vector3(transform.position.x + index * 2f, transform.position.y - currRow), transform.rotation);
             spawnedPrefab.name = name;
@@ -38,10 +36,6 @@ public class GenerateIngredients : MonoBehaviour
                 index = 0.0f;
             }
         }
-    }
-
-    public void SetUpSlots(){
-
     }
 
     // Helper method to get the sprite for a specific ingredient
