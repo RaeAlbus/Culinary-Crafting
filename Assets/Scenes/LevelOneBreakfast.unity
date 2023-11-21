@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 773673395}
   - component: {fileID: 773673394}
   m_Layer: 0
-  m_Name: GenerateScene
+  m_Name: GenerateIngredients
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,6 +495,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bdfda67e55019b41a335cf038118342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredients:
+  - Water
+  - Sugar
+  - Flour
+  - Oil
+  - Eggs
+  - Salt
+  - Pepper
+  - Bread
+  - Turkey
+  - Cheese
+  - Lettuce
+  - Bowl
+  - Stove
+  - Frying Pan
   ingredientSprites:
   - {fileID: 21300000, guid: 9c231039a3800f44086cf9a8303912a0, type: 3}
   - {fileID: 21300000, guid: 08f384ad0ea6ecb4aa403f5a73f231c9, type: 3}
@@ -510,6 +525,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 15fd04f19a8d0d9409e73c2134838932, type: 3}
   - {fileID: 21300000, guid: 2dbf23d66d048ec4292b4c7a9bc95ac5, type: 3}
   - {fileID: 21300000, guid: 03129aa6d40a8b546853216060a79e21, type: 3}
+  - {fileID: 21300000, guid: cd82fa86cc2a34c419b8c05f95b79e0f, type: 3}
+  - {fileID: 21300000, guid: 46296c4f610754b4b9253c95a905fd7c, type: 3}
   IngredientPrefab: {fileID: 5483131775400075219, guid: 06544757ef01aee4a95512a479024b5c, type: 3}
 --- !u!4 &773673395
 Transform:
@@ -942,6 +959,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1139116101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139116102}
+  - component: {fileID: 1139116103}
+  m_Layer: 0
+  m_Name: GenerateSlots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1139116102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139116101}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1139116103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139116101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46362debc40c54a42a9fc2a521989b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlotPrefab: {fileID: 6933969616352644287, guid: 4abebd41aa5bda0449e88ada50a49754, type: 3}
+  numSlots: 0
 --- !u!1 &1172196371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,3 +1690,4 @@ SceneRoots:
   - {fileID: 561829807}
   - {fileID: 2113777118}
   - {fileID: 773673395}
+  - {fileID: 1139116102}

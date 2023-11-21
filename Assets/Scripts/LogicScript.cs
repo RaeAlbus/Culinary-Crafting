@@ -15,7 +15,7 @@ public class LogicScript : MonoBehaviour
     private List<string> goal2;
     public GameObject IngredientPrefab;
     public Sprite[] dishSprites;
-    public GenerateIngredients scriptAReference;
+   //public GenerateIngredients scriptAReference;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class LogicScript : MonoBehaviour
 
                 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
-                GameObject generteSceneObject = GameObject.Find("GenerateScene");
+                GameObject generteSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
                 genIngScript.SetUpIngredients();
 
@@ -81,11 +81,18 @@ public class LogicScript : MonoBehaviour
                 stepOneDone = true;
 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
-                GameObject generteSceneObject = GameObject.Find("GenerateScene");
+                GameObject generteSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
                 genIngScript.SetUpIngredients();
-
                 DestroyIngredients(genIngScript.ingredients);
+
+                // Resets slot to be the new number of slots necessary
+                GameObject generateSlotsObject = GameObject.Find("GenerateSlots");
+                GenerateSlots generateSlotsScript = generateSlotsObject.GetComponent<GenerateSlots>();
+                generateSlotsScript.DestroySlots();
+                generateSlotsScript.numSlots = 3;
+                generateSlotsScript.SetUpSlots();
+
             } else {
                 updateText("Not quite right...");
             }
@@ -105,7 +112,7 @@ public class LogicScript : MonoBehaviour
     }
 
     public void addIngredient(string name){
-        GameObject generteSceneObject = GameObject.Find("GenerateScene");
+        GameObject generteSceneObject = GameObject.Find("GenerateIngredients");
         GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
         // Create a new array with a larger size
         string[] newIngredients = new string[ genIngScript.ingredients.Length + 1];
