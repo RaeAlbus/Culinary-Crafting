@@ -12,7 +12,7 @@ public class LogicScript : MonoBehaviour
     public bool stepTwoDone = false;
     public Text successText;
     private GameObject[] slots;
-    private List<string> goal;
+    private List<string> goal1;
     private List<string> goal2;
     public GameObject IngredientPrefab;
     public Sprite[] dishSprites;
@@ -21,9 +21,9 @@ public class LogicScript : MonoBehaviour
     void Start()
     {
         //slots = GameObject.FindGameObjectsWithTag("Slot");
-        goal = new List<string>{"Water", "Eggs", "Flour", "Sugar", "Bowl"};
-        goal2 = new List<string>{"Pancake Batter", "Frying Pan", "Stove"};
-        goal.Sort();
+        goal1 = new List<string>{"Water", "Eggs", "Flour", "Sugar", "Bowl"};
+        goal2 = new List<string>{"PancakeBatter", "FryingPan", "Stove"};
+        goal1.Sort();
         goal2.Sort();
     }
 
@@ -61,31 +61,28 @@ public class LogicScript : MonoBehaviour
         if(stepOneDone){
             if (goal2.SequenceEqual(ingNames)) {
                 updateText("You made Pancakes!");
-                spawnIngredient("Pancakes");
-                addIngredient("Pancakes");
                 stepTwoDone = true;
-
                 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
                 GameObject generteSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
+                DestroyIngredients(genIngScript.ingredients);
+                addIngredient("Pancakes");
                 genIngScript.SetUpIngredients();
 
-                DestroyIngredients(genIngScript.ingredients);
             } else {
                 updateText("Not quite right...");
             }
         } else {
-            if (goal.OrderBy(x => x).SequenceEqual(ingNames.OrderBy(x => x))) {
+            if (goal1.SequenceEqual(ingNames)) {
                 updateText("You made Pancake Batter!");
-                spawnIngredient("Pancake Batter");
-                addIngredient("Pancake Batter");
                 stepOneDone = true;
 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
                 GameObject generteSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generteSceneObject.GetComponent<GenerateIngredients>();
                 DestroyIngredients(genIngScript.ingredients);
+                addIngredient("PancakeBatter");
                 genIngScript.SetUpIngredients();
 
                 // Resets slot to be the new number of slots necessary
@@ -129,16 +126,10 @@ public class LogicScript : MonoBehaviour
         genIngScript.ingredients = newIngredients;
     }
 
-    public void spawnIngredient(string name) {
-        GameObject spawnedPrefab = Instantiate(IngredientPrefab, transform.position, transform.rotation);
-        spawnedPrefab.name = name;
+    public void NewItemPopup(string name) {
 
-        // Attaches sprite to GameObject
-        Sprite sprite = GetSpriteForIngredient(name);
-        SpriteRenderer spriteRenderer = spawnedPrefab.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = sprite;
-        float scaleFactor = 0.4f; // Adjust the scale factor as needed
-        spawnedPrefab.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
+
+
     }
 
     // Helper method to get the sprite for a specific ingredient
