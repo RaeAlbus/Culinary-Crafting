@@ -2,41 +2,44 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
-    // You can adjust this distance based on your game's requirements
     public float thresholdDistance;
     public GameObject ingredient;
 
-    void Start() {
+    void Start()
+    {
         thresholdDistance = 1.0f;
         ingredient = null;
     }
 
     public void mUp(GameObject food)
     {
-        // Check if the dragged object entered the slot
         if (food.CompareTag("Draggable"))
         {
             Draggable draggable = food.GetComponent<Draggable>();
 
-            // Check if the draggable is close enough to lock into place
             if (Vector2.Distance(draggable.transform.position, transform.position) < thresholdDistance)
             {
-                // Snap the draggable to the slot
-                draggable.transform.position = transform.position;
-                ingredient = food;
+                // Only snap if the slot is empty
+                if (ingredient == null)
+                {
+                    draggable.transform.position = transform.position;
+                    ingredient = food;
+                }
             }
         }
+        Debug.Log(ingredient);
     }
 
-    void OnTriggerExit2D(Collider2D other) {
-        if (other.CompareTag("Draggable"))
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Draggable") && other.gameObject == ingredient)
         {
             ingredient = null;
         }
     }
 
-    void Update() {
-
+    void Update()
+    {
+        // Additional logic can go here if needed
     }
 }
-
