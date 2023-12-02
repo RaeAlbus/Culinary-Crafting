@@ -16,6 +16,7 @@ public class LogicScript : MonoBehaviour
     private List<string> goal2;
     public GameObject IngredientPrefab;
     public Sprite[] dishSprites;
+    public PopupManager popupManager;
 
     // Start is called before the first frame update
     void Start()
@@ -60,8 +61,11 @@ public class LogicScript : MonoBehaviour
 
         if(stepOneDone){
             if (goal2.SequenceEqual(ingNames)) {
-                updateText("You made Pancakes!");
+                updateText("You did it!");
                 stepTwoDone = true;
+
+                Sprite targetSprite = FindSpriteByName("Pancakes");
+                popupManager.ShowPopup("You made Pancakes!", targetSprite);
                 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
                 GameObject generteSceneObject = GameObject.Find("GenerateIngredients");
@@ -75,7 +79,7 @@ public class LogicScript : MonoBehaviour
             }
         } else {
             if (goal1.SequenceEqual(ingNames)) {
-                updateText("You made Pancake Batter!");
+                updateText("Now whats the next step?");
                 stepOneDone = true;
 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
@@ -84,6 +88,9 @@ public class LogicScript : MonoBehaviour
                 DestroyIngredients(genIngScript.ingredients);
                 addIngredient("PancakeBatter");
                 genIngScript.SetUpIngredients();
+
+                Sprite targetSprite = FindSpriteByName("PancakeBatter");
+                popupManager.ShowPopup("You made Pancake Batter!", targetSprite);
 
                 // Resets slot to be the new number of slots necessary
                 GameObject generateSlotsObject = GameObject.Find("GenerateSlots");
@@ -132,10 +139,10 @@ public class LogicScript : MonoBehaviour
 
     }
 
-    // Helper method to get the sprite for a specific ingredient
-    private Sprite GetSpriteForIngredient(string ingredientName)
+    public Sprite FindSpriteByName(string spriteName)
     {
-        string spriteName = ingredientName.Replace(" ", "");
-        return System.Array.Find(dishSprites, sprite => sprite.name == spriteName);
+        Sprite foundSprite = dishSprites.FirstOrDefault(sprite => sprite.name == spriteName);
+        return foundSprite;
     }
 }
+
