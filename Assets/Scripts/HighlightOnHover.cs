@@ -5,7 +5,7 @@ using UnityEngine;
 public class HighlightOnHover : MonoBehaviour
 {
     private Color originalColor;
-    public Color highlightColor = Color.yellow;
+    public Color highlightColor = Color.white;
     private SpriteRenderer spriteRenderer;
 
     void Start()

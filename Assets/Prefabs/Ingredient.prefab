@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c9ba4b7f0373744872f03c354ed331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  highlightColor: {r: 1, g: 0.57254905, b: 0.9098039, a: 1}
 --- !u!50 &4455125459108634095
 Rigidbody2D:
   serializedVersion: 4

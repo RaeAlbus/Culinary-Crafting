@@ -11,8 +11,6 @@ public class GenerateSlots : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numSlots = 5;
-        SetUpSlots();
     }
 
     public void SetUpSlots(){
