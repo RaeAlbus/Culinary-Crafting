@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GenerateIngredients : MonoBehaviour
 {
-    public string[] ingredients = new string[]{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "Frying Pan"};
-    public Sprite[] ingredientSprites;
+    public List<string> ing;
+    public List<Sprite> iSprites;
     public GameObject IngredientPrefab;
     
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class GenerateIngredients : MonoBehaviour
         float spacing = 2.0f;
         Vector2 spawnOffset = new Vector2(0f, 0f);
 
-        for (int i = 0; i < ingredients.Length; i++)
+        for (int i = 0; i < ing.Count; i++)
         {
             int col = i % objectsPerRow;
             int row = i / objectsPerRow;
@@ -30,10 +30,10 @@ public class GenerateIngredients : MonoBehaviour
 
             Vector3 spawnPosition = new Vector3(x, y + 3, 0f);
             GameObject spawnedObject = Instantiate(IngredientPrefab, spawnPosition, Quaternion.identity);
-            spawnedObject.name = ingredients[i];
+            spawnedObject.name = ing[i];
 
             // Find the corresponding sprite in the array based on the name
-            Sprite sprite = System.Array.Find(ingredientSprites, s => s.name == spawnedObject.name);
+            Sprite sprite = iSprites.Find(s => s.name == spawnedObject.name);
             spawnedObject.GetComponent<SpriteRenderer>().sprite = sprite;
             float scaleFactor = 0.4f; // Adjust the scale factor as needed
             spawnedObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
@@ -46,7 +46,7 @@ public class GenerateIngredients : MonoBehaviour
     {
 
         string spriteName = ingredientName.Replace(" ", "");
-        return System.Array.Find(ingredientSprites, sprite => sprite.name == spriteName);
+        return iSprites.Find(sprite => sprite.name == spriteName);
     }
 
     // Update is called once per frame

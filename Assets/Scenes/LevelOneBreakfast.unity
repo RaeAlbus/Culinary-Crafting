@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 773673394}
   m_Layer: 0
   m_Name: GenerateIngredients
-  m_TagString: Untagged
+  m_TagString: GenIngredients
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -496,38 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bdfda67e55019b41a335cf038118342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredients:
-  - Water
-  - Sugar
-  - Flour
-  - Oil
-  - Eggs
-  - Salt
-  - Pepper
-  - Bread
-  - Turkey
-  - Cheese
-  - Lettuce
-  - Bowl
-  - Stove
-  - FryingPan
-  ingredientSprites:
-  - {fileID: 21300000, guid: 9c231039a3800f44086cf9a8303912a0, type: 3}
-  - {fileID: 21300000, guid: 08f384ad0ea6ecb4aa403f5a73f231c9, type: 3}
-  - {fileID: 21300000, guid: 515753a1e301d22489d06a2ff5304bf7, type: 3}
-  - {fileID: 21300000, guid: 46807d850bd64d3479208d36df776340, type: 3}
-  - {fileID: 21300000, guid: a6eb3075b2ae2fc44a1227c2d558b4b5, type: 3}
-  - {fileID: 21300000, guid: 0cff024fb87e5fe4d98fa6b6cb084eca, type: 3}
-  - {fileID: 21300000, guid: 7d1d536aa065984419b401b6439f46ac, type: 3}
-  - {fileID: 21300000, guid: 5ab2e840754861f4aa09b3f80ad65c58, type: 3}
-  - {fileID: 21300000, guid: d5c56e9ca81348c44b42fa4616fbf602, type: 3}
-  - {fileID: 21300000, guid: 5ad02be01c7a69644aa111a200b923bd, type: 3}
-  - {fileID: 21300000, guid: d9540ac9d5c783840a9dd1f214f4c6c2, type: 3}
-  - {fileID: 21300000, guid: 15fd04f19a8d0d9409e73c2134838932, type: 3}
-  - {fileID: 21300000, guid: 2dbf23d66d048ec4292b4c7a9bc95ac5, type: 3}
-  - {fileID: 21300000, guid: 03129aa6d40a8b546853216060a79e21, type: 3}
-  - {fileID: 21300000, guid: cd82fa86cc2a34c419b8c05f95b79e0f, type: 3}
-  - {fileID: 21300000, guid: 46296c4f610754b4b9253c95a905fd7c, type: 3}
+  ing: []
+  iSprites: []
   IngredientPrefab: {fileID: 5483131775400075219, guid: 06544757ef01aee4a95512a479024b5c, type: 3}
 --- !u!4 &773673395
 Transform:
@@ -964,7 +934,7 @@ GameObject:
   - component: {fileID: 1139116103}
   m_Layer: 0
   m_Name: GenerateSlots
-  m_TagString: Untagged
+  m_TagString: GenSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1440,6 +1410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113777118}
   - component: {fileID: 2113777119}
+  - component: {fileID: 2113777120}
   m_Layer: 0
   m_Name: LogicManager
   m_TagString: Logic
@@ -1474,14 +1445,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b262f69db7b22d4e8efc7fce3fbeb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepOneDone: 0
-  stepTwoDone: 0
   successText: {fileID: 1441242387}
   IngredientPrefab: {fileID: 5483131775400075219, guid: 06544757ef01aee4a95512a479024b5c, type: 3}
   dishSprites:
   - {fileID: 21300000, guid: cd82fa86cc2a34c419b8c05f95b79e0f, type: 3}
   - {fileID: 21300000, guid: 46296c4f610754b4b9253c95a905fd7c, type: 3}
   popupManager: {fileID: 960461681}
+--- !u!114 &2113777120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113777117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f661f62f9497e947bd50b853740474b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logicScript: {fileID: 0}
+  generateIngredients: {fileID: 0}
+  level1Sprites:
+  - {fileID: 21300000, guid: 9c231039a3800f44086cf9a8303912a0, type: 3}
+  - {fileID: 21300000, guid: 08f384ad0ea6ecb4aa403f5a73f231c9, type: 3}
+  - {fileID: 21300000, guid: 515753a1e301d22489d06a2ff5304bf7, type: 3}
+  - {fileID: 21300000, guid: 46807d850bd64d3479208d36df776340, type: 3}
+  - {fileID: 21300000, guid: 0cff024fb87e5fe4d98fa6b6cb084eca, type: 3}
+  - {fileID: 21300000, guid: a6eb3075b2ae2fc44a1227c2d558b4b5, type: 3}
+  - {fileID: 21300000, guid: 5ab2e840754861f4aa09b3f80ad65c58, type: 3}
+  - {fileID: 21300000, guid: 7d1d536aa065984419b401b6439f46ac, type: 3}
+  - {fileID: 21300000, guid: cd82fa86cc2a34c419b8c05f95b79e0f, type: 3}
+  - {fileID: 21300000, guid: 46296c4f610754b4b9253c95a905fd7c, type: 3}
+  - {fileID: 21300000, guid: d5c56e9ca81348c44b42fa4616fbf602, type: 3}
+  - {fileID: 21300000, guid: 5ad02be01c7a69644aa111a200b923bd, type: 3}
+  - {fileID: 21300000, guid: d9540ac9d5c783840a9dd1f214f4c6c2, type: 3}
+  - {fileID: 21300000, guid: 15fd04f19a8d0d9409e73c2134838932, type: 3}
+  - {fileID: 21300000, guid: 2dbf23d66d048ec4292b4c7a9bc95ac5, type: 3}
+  - {fileID: 21300000, guid: 03129aa6d40a8b546853216060a79e21, type: 3}
+  - {fileID: 21300000, guid: 7531ac9682a09d141a12328ba15d566e, type: 3}
+  - {fileID: 21300000, guid: c6ecd6bf6e3afbf4f9491d217309c3bc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1489,7 +1491,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 303318774}
   - {fileID: 561829807}
-  - {fileID: 2113777118}
   - {fileID: 773673395}
   - {fileID: 1139116102}
   - {fileID: 960461682}
+  - {fileID: 2113777118}
