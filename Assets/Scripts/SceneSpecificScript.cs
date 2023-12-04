@@ -30,6 +30,9 @@ public class SceneSpecificScript : MonoBehaviour
             case "LevelOneLunch":
                 DoScene2Actions();
                 break;
+            case "LevelOneDinner":
+                DoScene3Actions();
+                break;
             // Add more cases for additional scenes as needed
             default:
                 Debug.LogWarning("Unknown scene: " + currentScene);
@@ -61,6 +64,24 @@ public class SceneSpecificScript : MonoBehaviour
         logicScript.allGoals = new List<(List<string>, string)>();
         logicScript.allGoals.Add((new List<string>{"Oil", "Salt", "Pepper", "Bowl"}, "Dressing"));
         logicScript.allGoals.Add((new List<string>{"Lettuce", "Dressing", "Bowl"}, "Salad w Dressing"));
+        foreach ((List<string>, string) ing in logicScript.allGoals) {
+            ing.Item1.Sort();
+        }
+        generateIngredients.ing = new List<string>{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "FryingPan"};
+        generateIngredients.iSprites = level1Sprites;
+        generateSlots.numSlots = logicScript.allGoals[0].Item1.Count;
+        generateIngredients.SetUpIngredients();
+        generateSlots.SetUpSlots();
+        logicScript.dishSprites = level1Sprites;
+        Debug.Log("Performing actions for Scene2");
+    }
+
+    void DoScene3Actions()
+    {
+        guiText.text = "Make a Turkey Cheese Melt Sandwich in Two Steps";
+        logicScript.allGoals = new List<(List<string>, string)>();
+        logicScript.allGoals.Add((new List<string>{"Bread", "Turkey", "Cheese"}, "Turkey Cheese Sandwich"));
+        logicScript.allGoals.Add((new List<string>{"TurkeyCheeseSandwich", "FryingPan", "Stove"}, "Turkey Melt"));
         foreach ((List<string>, string) ing in logicScript.allGoals) {
             ing.Item1.Sort();
         }
