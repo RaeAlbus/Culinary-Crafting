@@ -37,7 +37,7 @@ public class SceneSpecificScript : MonoBehaviour
     void DoScene1Actions()
     {
         logicScript.allGoals = new List<(List<string>, string)>();
-        logicScript.allGoals.Add((new List<string>{"Water", "Eggs", "Flour", "Sugar", "Bowl"}, "PancakeBatter"));
+        logicScript.allGoals.Add((new List<string>{"Water", "Eggs", "Flour", "Sugar", "Bowl"}, "Pancake Batter"));
         logicScript.allGoals.Add((new List<string>{"PancakeBatter", "FryingPan", "Stove"}, "Pancakes"));
         foreach ((List<string>, string) ing in logicScript.allGoals) {
             ing.Item1.Sort();
@@ -55,7 +55,7 @@ public class SceneSpecificScript : MonoBehaviour
     {
         logicScript.allGoals = new List<(List<string>, string)>();
         logicScript.allGoals.Add((new List<string>{"Oil", "Salt", "Pepper", "Bowl"}, "Dressing"));
-        logicScript.allGoals.Add((new List<string>{"Lettuce", "Dressing", "Bowl"}, "SaladwDressing"));
+        logicScript.allGoals.Add((new List<string>{"Lettuce", "Dressing", "Bowl"}, "Salad w Dressing"));
         foreach ((List<string>, string) ing in logicScript.allGoals) {
             ing.Item1.Sort();
         }

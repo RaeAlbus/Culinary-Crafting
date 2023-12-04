@@ -54,14 +54,14 @@ public class LogicScript : MonoBehaviour
             if (allGoals[0].Item1.SequenceEqual(ingNames)) {
                 updateText("You did it!");
 
-                Sprite targetSprite = FindSpriteByName(allGoals[0].Item2);
+                Sprite targetSprite = FindSpriteByName(allGoals[0].Item2.Replace(" ", ""));
                 popupManager.ShowPopup("You made " + allGoals[0].Item2 + "!", targetSprite);
                 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
                 GameObject generateSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generateSceneObject.GetComponent<GenerateIngredients>();
                 DestroyIngredients(genIngScript.ing);
-                addIngredient(allGoals[0].Item2);
+                addIngredient(allGoals[0].Item2.Replace(" ", ""));
                 genIngScript.SetUpIngredients();
                 allGoals.RemoveAt(0);
             } else {
@@ -75,10 +75,10 @@ public class LogicScript : MonoBehaviour
                 GameObject generateSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generateSceneObject.GetComponent<GenerateIngredients>();
                 DestroyIngredients(genIngScript.ing);
-                addIngredient(allGoals[0].Item2);
+                addIngredient(allGoals[0].Item2.Replace(" ", ""));
                 genIngScript.SetUpIngredients();
 
-                Sprite targetSprite = FindSpriteByName(allGoals[0].Item2);
+                Sprite targetSprite = FindSpriteByName(allGoals[0].Item2.Replace(" ", ""));
                 popupManager.ShowPopup("You made " + allGoals[0].Item2 + "!", targetSprite);
 
                 // Resets slot to be the new number of slots necessary
