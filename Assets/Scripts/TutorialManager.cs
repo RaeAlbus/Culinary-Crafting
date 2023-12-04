@@ -45,7 +45,7 @@ public class TutorialManager : MonoBehaviour
                 else
                 {
                     // End of tutorial, load the next scene
-                    Debug.Log("LoadNextScene()");
+                    LoadNextScene();
                 }
             }
         }
@@ -70,6 +70,10 @@ public class TutorialManager : MonoBehaviour
             panelRectTransform.anchoredPosition = tutorialText.rectTransform.anchoredPosition;
 
         }
+    }
+
+    void LoadNextScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 
