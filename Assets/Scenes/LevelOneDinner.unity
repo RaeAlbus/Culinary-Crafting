@@ -1488,6 +1488,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7a079349b69decd45a8ec1c84f20c367, type: 3}
   generateSlots: {fileID: 0}
   guiText: {fileID: 0}
+  MainBGPrefab: {fileID: 6586720407481863997, guid: 63d3f6ae0f9ff19488081291ea313fb6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

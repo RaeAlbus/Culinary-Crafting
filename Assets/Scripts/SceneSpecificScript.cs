@@ -11,6 +11,7 @@ public class SceneSpecificScript : MonoBehaviour
     public List<Sprite> level1Sprites;
     public GenerateSlots generateSlots;
     public Text guiText;
+    public GameObject MainBGPrefab;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class SceneSpecificScript : MonoBehaviour
         guiText = GameObject.FindGameObjectWithTag("Instructions").GetComponent<Text>();
         // Get the current scene name
         string currentScene = SceneManager.GetActiveScene().name;
+        Instantiate(MainBGPrefab);
 
         // Perform actions based on the scene name
         switch (currentScene)
