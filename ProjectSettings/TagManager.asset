@@ -9,6 +9,7 @@ TagManager:
   - Slot
   - GenIngredients
   - GenSlots
+  - Instructions
   layers:
   - Default
   - TransparentFX

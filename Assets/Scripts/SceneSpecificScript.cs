@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,12 +10,14 @@ public class SceneSpecificScript : MonoBehaviour
     public GenerateIngredients generateIngredients;
     public List<Sprite> level1Sprites;
     public GenerateSlots generateSlots;
+    public Text guiText;
 
     void Start()
     {
         logicScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         generateIngredients = GameObject.FindGameObjectWithTag("GenIngredients").GetComponent<GenerateIngredients>();
         generateSlots = GameObject.FindGameObjectWithTag("GenSlots").GetComponent<GenerateSlots>();
+        guiText = GameObject.FindGameObjectWithTag("Instructions").GetComponent<Text>();
         // Get the current scene name
         string currentScene = SceneManager.GetActiveScene().name;
 
@@ -36,6 +39,7 @@ public class SceneSpecificScript : MonoBehaviour
 
     void DoScene1Actions()
     {
+        guiText.text = "Make Pancakes in Two Steps";
         logicScript.allGoals = new List<(List<string>, string)>();
         logicScript.allGoals.Add((new List<string>{"Water", "Eggs", "Flour", "Sugar", "Bowl"}, "Pancake Batter"));
         logicScript.allGoals.Add((new List<string>{"PancakeBatter", "FryingPan", "Stove"}, "Pancakes"));
@@ -53,6 +57,7 @@ public class SceneSpecificScript : MonoBehaviour
 
     void DoScene2Actions()
     {
+        guiText.text = "Make Salad With Dressing in Two Steps";
         logicScript.allGoals = new List<(List<string>, string)>();
         logicScript.allGoals.Add((new List<string>{"Oil", "Salt", "Pepper", "Bowl"}, "Dressing"));
         logicScript.allGoals.Add((new List<string>{"Lettuce", "Dressing", "Bowl"}, "Salad w Dressing"));
