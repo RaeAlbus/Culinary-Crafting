@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelOneLunch.unity
     guid: 6f494389744e8a84e8ea690b19b2148f
   - enabled: 1
+    path: Assets/Scenes/LevelOneDinner.unity
+    guid: 58da07d045a3ae34d8cea90900edd420
+  - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 29941eb8a7e4cc14d8917e4d8fb0b8d1
   m_configObjects: {}
