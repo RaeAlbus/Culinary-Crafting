@@ -15,6 +15,7 @@ public class TutorialManager : MonoBehaviour
     public TutorialMessage[] tutorialMessages;
     public GameObject introPanel;
     public GameObject panelBackground;
+    public GameObject introBlur;
     private int currentIndex = 0; // Start at -1 to show the intro panel first
     private bool introPanelActive = true;
 
@@ -57,11 +58,13 @@ public class TutorialManager : MonoBehaviour
         {
             // Show the introductory panel
             introPanel.SetActive(true);
+            introBlur.SetActive(true);
         }
         else
         {
             // Hide the introductory panel
             introPanel.SetActive(false);
+            introBlur.SetActive(false);
 
             // Display the current tutorial message and set its position
             tutorialText.text = tutorialMessages[currentIndex].message;
