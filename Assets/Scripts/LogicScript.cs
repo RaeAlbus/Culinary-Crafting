@@ -90,7 +90,12 @@ public class LogicScript : MonoBehaviour
                 allGoals.RemoveAt(0);
 
             } else {
-                updateText("Not quite right...");
+                int correctCount = 0;
+                List<string> commonElements = allGoals[0].Item1.Intersect(ingNames).ToList();
+                correctCount = commonElements.Count;
+                int totalSlots = allGoals[0].Item1.Count;
+                
+                updateText("Not quite right..." + correctCount + " out of " + totalSlots + " correct");
             }
         }
     }

@@ -670,7 +670,7 @@ MonoBehaviour:
   - message: You can drag and drop your ingredients into these slots
     position: {x: -606, y: -120}
   - message: The number of slots is equal to the amount of ingredients needed to
-      craft the next step
+      craft the current step
     position: {x: -606, y: -120}
   - message: Right below we have the crafting button>
     position: {x: -490, y: -410}
