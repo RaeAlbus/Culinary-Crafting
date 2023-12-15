@@ -7,6 +7,8 @@ public class HighlightOnHover : MonoBehaviour
     private Color originalColor;
     public Color highlightColor = Color.white;
     private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
+    public AudioClip hoverSound;
 
     void Start()
     {
@@ -17,6 +19,10 @@ public class HighlightOnHover : MonoBehaviour
             // Store the original color of the sprite
             originalColor = spriteRenderer.color;
         }
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.clip = hoverSound;
     }
 
     void OnMouseEnter()
@@ -24,6 +30,10 @@ public class HighlightOnHover : MonoBehaviour
         // Check if the mouse is over the object
         if (spriteRenderer != null)
         {
+            if (audioSource != null && hoverSound != null)
+            {
+                audioSource.Play();
+            }
             // Change the color to the highlight color when the mouse enters
             spriteRenderer.color = highlightColor;
         }

@@ -1359,6 +1359,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cd82fa86cc2a34c419b8c05f95b79e0f, type: 3}
   - {fileID: 21300000, guid: 46296c4f610754b4b9253c95a905fd7c, type: 3}
   popupManager: {fileID: 960461681}
+  failSound: {fileID: 8300000, guid: 88f66cddb4086574db7901510f78375e, type: 3}
+  successSound: {fileID: 8300000, guid: 1da6fe3bce115064285e8027495ddfa2, type: 3}
 --- !u!114 &2113777120
 MonoBehaviour:
   m_ObjectHideFlags: 0

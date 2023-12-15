@@ -83,6 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thresholdDistance: 1
   ingredient: {fileID: 0}
+  lockInSound: {fileID: 8300000, guid: d371637bb95ce554792d650fb54e0996, type: 3}
 --- !u!212 &4572350607400076571
 SpriteRenderer:
   m_ObjectHideFlags: 0

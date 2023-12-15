@@ -14,10 +14,20 @@ public class LogicScript : MonoBehaviour
     public GameObject IngredientPrefab;
     public List<Sprite> dishSprites;
     public PopupManager popupManager;
+    private AudioSource failAudioSource;
+    public AudioClip failSound;
+    private AudioSource successAudioSource;
+    public AudioClip successSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        failAudioSource = gameObject.AddComponent<AudioSource>();
+        failAudioSource.playOnAwake = false;
+        failAudioSource.clip = failSound;
+        successAudioSource = gameObject.AddComponent<AudioSource>();
+        successAudioSource.playOnAwake = false;
+        successAudioSource.clip = successSound;
     }
 
     // Update is called once per frame
@@ -53,6 +63,7 @@ public class LogicScript : MonoBehaviour
         if (allGoals.Count == 1) {
             if (allGoals[0].Item1.SequenceEqual(ingNames)) {
                 updateText("You did it!");
+                successAudioSource.Play();
 
                 Sprite targetSprite = FindSpriteByName(allGoals[0].Item2.Replace(" ", ""));
                 popupManager.ShowPopup("You made " + allGoals[0].Item2 + "!", targetSprite);
@@ -66,10 +77,12 @@ public class LogicScript : MonoBehaviour
                 allGoals.RemoveAt(0);
             } else {
                 updateText("Not quite right...");
+                failAudioSource.Play();
             }
         } else {
             if (allGoals[0].Item1.SequenceEqual(ingNames)) {
                 updateText("Now whats the next step?");
+                successAudioSource.Play();
 
                 // Resets all ingredients at top by calling SetUpIngredients in the GenerateIngredients Script
                 GameObject generateSceneObject = GameObject.Find("GenerateIngredients");
@@ -96,6 +109,7 @@ public class LogicScript : MonoBehaviour
                 int totalSlots = allGoals[0].Item1.Count;
                 
                 updateText("Not quite right..." + correctCount + " out of " + totalSlots + " correct");
+                failAudioSource.Play();
             }
         }
     }

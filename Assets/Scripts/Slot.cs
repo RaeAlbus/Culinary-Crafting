@@ -4,11 +4,16 @@ public class Slot : MonoBehaviour
 {
     public float thresholdDistance;
     public GameObject ingredient;
+    private AudioSource audioSource;
+    public AudioClip lockInSound;
 
     void Start()
     {
         thresholdDistance = 1.0f;
         ingredient = null;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.clip = lockInSound;
     }
 
     public void mUp(GameObject food)
@@ -24,6 +29,10 @@ public class Slot : MonoBehaviour
                 {
                     draggable.transform.position = transform.position;
                     ingredient = food;
+                    if (audioSource != null && lockInSound != null)
+                    {
+                        audioSource.Play();
+                    }
                 }
             }
         }

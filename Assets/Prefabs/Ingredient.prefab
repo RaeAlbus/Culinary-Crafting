@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0.57254905, b: 0.9098039, a: 1}
+  hoverSound: {fileID: 8300000, guid: 76ee547092cd9bb4f91c072755aa9802, type: 3}
 --- !u!50 &4455125459108634095
 Rigidbody2D:
   serializedVersion: 4
