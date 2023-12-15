@@ -51,7 +51,7 @@ public class SceneSpecificScript : MonoBehaviour
         foreach ((List<string>, string) ing in logicScript.allGoals) {
             ing.Item1.Sort();
         }
-        generateIngredients.ing = new List<string>{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "FryingPan"};
+        generateIngredients.ing = new List<string>{"Water", "Sugar", "Flour", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Tomato Sauce", "Bowl", "Stove", "FryingPan", "Pot"};
         generateIngredients.iSprites = level1Sprites;
         generateSlots.numSlots = logicScript.allGoals[0].Item1.Count;
         generateIngredients.SetUpIngredients();
@@ -62,14 +62,15 @@ public class SceneSpecificScript : MonoBehaviour
 
     void DoScene2Actions()
     {
-        guiText.text = "Make Salad With Dressing in Two Steps";
+        guiText.text = "Make Pasta with Sauce in Three Steps";
         logicScript.allGoals = new List<(List<string>, string)>();
-        logicScript.allGoals.Add((new List<string>{"Oil", "Salt", "Pepper", "Bowl"}, "Dressing"));
-        logicScript.allGoals.Add((new List<string>{"Lettuce", "Dressing", "Bowl"}, "Salad w Dressing"));
+        logicScript.allGoals.Add((new List<string>{"Eggs", "Flour"}, "Raw Pasta"));
+        logicScript.allGoals.Add((new List<string>{"RawPasta", "Water", "Pot", "Stove"}, "Cooked Pasta"));
+        logicScript.allGoals.Add((new List<string>{"CookedPasta", "Tomato Sauce", "Bowl"}, "Pasta with Sauce"));
         foreach ((List<string>, string) ing in logicScript.allGoals) {
             ing.Item1.Sort();
         }
-        generateIngredients.ing = new List<string>{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "FryingPan"};
+        generateIngredients.ing = new List<string>{"Water", "Sugar", "Flour", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Tomato Sauce", "Bowl", "Stove", "FryingPan", "Pot"};
         generateIngredients.iSprites = level1Sprites;
         generateSlots.numSlots = logicScript.allGoals[0].Item1.Count;
         generateIngredients.SetUpIngredients();
@@ -87,7 +88,7 @@ public class SceneSpecificScript : MonoBehaviour
         foreach ((List<string>, string) ing in logicScript.allGoals) {
             ing.Item1.Sort();
         }
-        generateIngredients.ing = new List<string>{"Water", "Sugar", "Flour", "Oil", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Lettuce", "Bowl", "Stove", "FryingPan"};
+        generateIngredients.ing = new List<string>{"Water", "Sugar", "Flour", "Eggs", "Salt", "Pepper", "Bread", "Turkey", "Cheese", "Tomato Sauce", "Bowl", "Stove", "FryingPan", "Pot"};
         generateIngredients.iSprites = level1Sprites;
         generateSlots.numSlots = logicScript.allGoals[0].Item1.Count;
         generateIngredients.SetUpIngredients();

@@ -72,11 +72,16 @@ public class LogicScript : MonoBehaviour
                 GameObject generateSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generateSceneObject.GetComponent<GenerateIngredients>();
                 DestroyIngredients(genIngScript.ing);
-                addIngredient(allGoals[0].Item2.Replace(" ", ""));
+               // addIngredient(allGoals[0].Item2.Replace(" ", ""));
                 genIngScript.SetUpIngredients();
                 allGoals.RemoveAt(0);
             } else {
-                updateText("Not quite right...");
+                int correctCount = 0;
+                List<string> commonElements = allGoals[0].Item1.Intersect(ingNames).ToList();
+                correctCount = commonElements.Count;
+                int totalSlots = allGoals[0].Item1.Count;
+
+                updateText("Not quite right..." + correctCount + " out of " + totalSlots + " correct");
                 failAudioSource.Play();
             }
         } else {

@@ -1486,6 +1486,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 03129aa6d40a8b546853216060a79e21, type: 3}
   - {fileID: 21300000, guid: 7531ac9682a09d141a12328ba15d566e, type: 3}
   - {fileID: 21300000, guid: c6ecd6bf6e3afbf4f9491d217309c3bc, type: 3}
+  - {fileID: 21300000, guid: ef438d26690fd3c42a14eb75edefd7c9, type: 3}
+  - {fileID: 21300000, guid: dfda7fc48cae24844877eb06fe84e674, type: 3}
+  - {fileID: 21300000, guid: c98879ac410fa51439a4f3e3a86fbd80, type: 3}
+  - {fileID: 21300000, guid: 20f47de2786355c409a1f165975af3e5, type: 3}
+  - {fileID: 21300000, guid: ec2d05763655b8a489f13c5edd751753, type: 3}
   generateSlots: {fileID: 0}
   guiText: {fileID: 0}
   MainBGPrefab: {fileID: 6586720407481863997, guid: 63d3f6ae0f9ff19488081291ea313fb6, type: 3}
