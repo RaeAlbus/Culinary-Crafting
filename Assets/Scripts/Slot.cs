@@ -20,7 +20,7 @@ public class Slot : MonoBehaviour
             if (Vector2.Distance(draggable.transform.position, transform.position) < thresholdDistance)
             {
                 // Only snap if the slot is empty
-                if (ingredient == null)
+                if (ingredient == null || ingredient == food)
                 {
                     draggable.transform.position = transform.position;
                     ingredient = food;
