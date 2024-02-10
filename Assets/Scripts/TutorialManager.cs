@@ -16,7 +16,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject introPanel;
     public GameObject panelBackground;
     public GameObject introBlur;
-    private int currentIndex = 0; // Start at -1 to show the intro panel first
+    private int currentIndex = 0;
     private bool introPanelActive = true;
 
     void Start()
@@ -26,18 +26,17 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
-        // Check for mouse click
         if (Input.GetMouseButtonDown(0))
         {
             if (introPanelActive)
             {
-                // If intro panel is active, proceed to the next message
+                // If intro panel is active, proceeds to the next message
                 introPanelActive = false;
                 ShowNext();
             }
             else
             {
-                // If there are more messages, show the next one
+                // If there are more messages, shows the next one
                 if (currentIndex < tutorialMessages.Length - 1)
                 {
                     currentIndex++;
@@ -45,7 +44,6 @@ public class TutorialManager : MonoBehaviour
                 }
                 else
                 {
-                    // End of tutorial, load the next scene
                     LoadNextScene();
                 }
             }
@@ -56,17 +54,17 @@ public class TutorialManager : MonoBehaviour
     {
         if (introPanelActive)
         {
-            // Show the introductory panel
+            // Shows the introductory panel
             introPanel.SetActive(true);
             introBlur.SetActive(true);
         }
         else
         {
-            // Hide the introductory panel
+            // Hides the introductory panel
             introPanel.SetActive(false);
             introBlur.SetActive(false);
 
-            // Display the current tutorial message and set its position
+            // Displays the current tutorial message and sets its position
             tutorialText.text = tutorialMessages[currentIndex].message;
             tutorialText.rectTransform.anchoredPosition = tutorialMessages[currentIndex].position;
             RectTransform panelRectTransform = panelBackground.GetComponent<RectTransform>();
@@ -78,6 +76,5 @@ public class TutorialManager : MonoBehaviour
     void LoadNextScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
 
 }

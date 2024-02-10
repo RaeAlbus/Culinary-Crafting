@@ -12,28 +12,27 @@ public class PopupManager : MonoBehaviour
 
     private void Start()
     {
-        // Initially, hide the pop-up
+        // Hides the pop-up
         popupPanel.SetActive(false);
 
-        // Set up the exit button click event
         exitButton.onClick.AddListener(ClosePopup);
     }
 
     public void ShowPopup(string message, Sprite popupSprite)
     {
-        // Set the message text
+        // Sets the message text
         messageText.text = message;
 
-        // Set the sprite
+        // Sets the sprite
         popupImage.sprite = popupSprite;
 
-        // Show the pop-up
+        // Shows the pop-up
         popupPanel.SetActive(true);
     }
 
     private void ClosePopup()
     {
-        // Hide the pop-up
+        // Hides the pop-up
         popupPanel.SetActive(false);
     }
 }

@@ -12,7 +12,7 @@ public class HighlightOnHover : MonoBehaviour
 
     void Start()
     {
-        // Get the SpriteRenderer component of the object
+        // Get the SpriteRenderer component of the ingredient
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
@@ -27,7 +27,7 @@ public class HighlightOnHover : MonoBehaviour
 
     void OnMouseEnter()
     {
-        // Check if the mouse is over the object
+
         if (spriteRenderer != null)
         {
             if (audioSource != null && hoverSound != null)

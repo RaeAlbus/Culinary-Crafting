@@ -8,7 +8,6 @@ public class GenerateIngredients : MonoBehaviour
     public List<Sprite> iSprites;
     public GameObject IngredientPrefab;
     
-    // Start is called before the first frame update
     void Start()
     {
         SetUpIngredients();
@@ -32,16 +31,16 @@ public class GenerateIngredients : MonoBehaviour
             GameObject spawnedObject = Instantiate(IngredientPrefab, spawnPosition, Quaternion.identity);
             spawnedObject.name = ing[i];
 
-            // Find the corresponding sprite in the array based on the name
+            // Finds the corresponding sprite in the array based on the name
             Sprite sprite = iSprites.Find(s => s.name == spawnedObject.name);
             spawnedObject.GetComponent<SpriteRenderer>().sprite = sprite;
-            float scaleFactor = 0.4f; // Adjust the scale factor as needed
+            float scaleFactor = 0.4f;
             spawnedObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
 
         }
     }
 
-    // Helper method to get the sprite for a specific ingredient
+    // Helper method that gets the sprite for a specific ingredient
     private Sprite GetSpriteForIngredient(string ingredientName)
     {
 
@@ -49,9 +48,4 @@ public class GenerateIngredients : MonoBehaviour
         return iSprites.Find(sprite => sprite.name == spriteName);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

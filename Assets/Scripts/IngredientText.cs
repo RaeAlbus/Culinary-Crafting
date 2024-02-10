@@ -5,18 +5,17 @@ using UnityEngine.UI;
 
 public class IngredientText : MonoBehaviour
 {
-    public Transform targetObject; // Assign the GameObject to follow in the Inspector
+    public Transform completetionText;
 
     void Start() {
-        GetComponent<Text>().text = targetObject.gameObject.name;
+        GetComponent<Text>().text = completetionText.gameObject.name;
     }
 
     void Update()
     {
-        if (targetObject != null)
+        if (completetionText != null)
         {
-            // Update the position of the Text object to match the target GameObject
-            transform.position = Camera.main.WorldToScreenPoint(targetObject.position);
+            transform.position = Camera.main.WorldToScreenPoint(completetionText.position);
         }
     }
 }

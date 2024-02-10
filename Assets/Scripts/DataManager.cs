@@ -6,13 +6,15 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
 
-    // Your data variables
+    // All the ingredient combinations
     public List<List<(List<string>, string)>> allGoals;
+    // All ingredients available in this level
     public string[][] ingredients;
 
     void Start()
     {
-        //slots = GameObject.FindGameObjectsWithTag("Slot");
+
+        // Sets all the combinations for this level
         allGoals = new List<List<(List<string>, string)>>();
         allGoals.Add(new List<(List<string>, string)>());
         allGoals[0].Add((new List<string>{"Water", "Eggs", "Flour", "Sugar", "Bowl"}, "PancakeBatter"));

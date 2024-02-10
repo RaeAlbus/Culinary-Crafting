@@ -4,36 +4,33 @@ using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    private static BackgroundMusic instance;
+    private static BackgroundMusic bgMusic;
     private AudioSource audioSource;
 
     void Start()
     {
-        if (instance == null)
+        // Initializes and plays the background music
+        if (bgMusic == null)
         {
-            // This is the first instance of the script, so make it the singleton instance
-            instance = this;
+            bgMusic = this;
 
-            // Mark this GameObject to persist across scene changes
             DontDestroyOnLoad(gameObject);
 
-            // Initialize and play the background music
             audioSource = GetComponent<AudioSource>();
             audioSource.Play();
         }
         else
         {
-            // Another instance of the script already exists, so destroy this one
+            // Destroys instance if another instance already exists
             Destroy(gameObject);
         }
     }
 
     void Update()
     {
-        // Check if the audio has finished playing
+        // Checks if the audio has finished playing - restarts if it has
         if (!audioSource.isPlaying)
         {
-            // If it has finished, restart it
             audioSource.Play();
         }
     }

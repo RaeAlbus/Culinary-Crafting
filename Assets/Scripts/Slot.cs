@@ -16,6 +16,7 @@ public class Slot : MonoBehaviour
         audioSource.clip = lockInSound;
     }
 
+    // Snaps any nearby ingredient to a slot if slot is empty
     public void mUp(GameObject food)
     {
         if (food.CompareTag("Draggable"))
@@ -47,8 +48,4 @@ public class Slot : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        // Additional logic can go here if needed
-    }
 }

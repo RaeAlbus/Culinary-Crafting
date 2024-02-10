@@ -19,7 +19,6 @@ public class LogicScript : MonoBehaviour
     private AudioSource successAudioSource;
     public AudioClip successSound;
 
-    // Start is called before the first frame update
     void Start()
     {
         failAudioSource = gameObject.AddComponent<AudioSource>();
@@ -30,7 +29,6 @@ public class LogicScript : MonoBehaviour
         successAudioSource.clip = successSound;
     }
 
-    // Update is called once per frame
     void Update()
     {
         slots = GameObject.FindGameObjectsWithTag("Slot");
@@ -72,7 +70,6 @@ public class LogicScript : MonoBehaviour
                 GameObject generateSceneObject = GameObject.Find("GenerateIngredients");
                 GenerateIngredients genIngScript = generateSceneObject.GetComponent<GenerateIngredients>();
                 DestroyIngredients(genIngScript.ing);
-               // addIngredient(allGoals[0].Item2.Replace(" ", ""));
                 genIngScript.SetUpIngredients();
                 allGoals.RemoveAt(0);
             } else {
@@ -134,12 +131,6 @@ public class LogicScript : MonoBehaviour
         GameObject generateSceneObject = GameObject.Find("GenerateIngredients");
         GenerateIngredients genIngScript = generateSceneObject.GetComponent<GenerateIngredients>();
         genIngScript.ing.Add(name);
-    }
-
-    public void NewItemPopup(string name) {
-
-
-
     }
 
     public Sprite FindSpriteByName(string spriteName)

@@ -19,7 +19,7 @@ public class SceneSpecificScript : MonoBehaviour
         generateIngredients = GameObject.FindGameObjectWithTag("GenIngredients").GetComponent<GenerateIngredients>();
         generateSlots = GameObject.FindGameObjectWithTag("GenSlots").GetComponent<GenerateSlots>();
         guiText = GameObject.FindGameObjectWithTag("Instructions").GetComponent<Text>();
-        // Get the current scene name
+        // Gets the current scene name
         string currentScene = SceneManager.GetActiveScene().name;
         Instantiate(MainBGPrefab);
 
@@ -35,7 +35,6 @@ public class SceneSpecificScript : MonoBehaviour
             case "LevelOneDinner":
                 DoScene3Actions();
                 break;
-            // Add more cases for additional scenes as needed
             default:
                 Debug.LogWarning("Unknown scene: " + currentScene);
                 break;
