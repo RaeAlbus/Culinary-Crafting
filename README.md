@@ -65,7 +65,3 @@ This game was developed as a learning project to explore:
 - **Nico Proskauer** - Programming & Game Design
 
 **Special Thanks:** To our classmates/playtesters for their feedback throughout development!
-
----
-
-*"With what seems like infinite combinations of ingredients, I never know what I'm going to find on my plate when I'm done."* - Design Philosophy
